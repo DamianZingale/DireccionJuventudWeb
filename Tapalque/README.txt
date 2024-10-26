@@ -54,7 +54,7 @@ Una vez abierto el proyecto en el IDE. Click derecho sobre archivo pom.xml y eje
 
 Si van al la aplicacionde docker descargada, en container le debera aparecer como 'tapalque'
 
-Ingresar desde el navegador a http://localhost:8080
+Ingresar desde el navegador a http://localhost:8080/
 
 Si aparece este mensaje:
 
