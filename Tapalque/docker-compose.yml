@@ -1,0 +1,26 @@
+
+services:
+  app_estudiantes:
+    build: tapalque
+    mem_limit: 512m
+    ports:
+      - "8080:8080"
+    restart: always
+    depends_on:
+      estudiantes_data:
+        condition: service_healthy
+
+  estudiantes_data:
+    image: postgres:16
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 3141592
+      POSTGRES_DB: estudiantes_db
+    restart: always
+    healthcheck:
+      test: ["CMD", "pg_isready", "-U", "postgres"]
+      timeout: 10s
+      interval: 5s
+      retries: 10
